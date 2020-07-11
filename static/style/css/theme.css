@@ -1,0 +1,10 @@
+:root {
+  --main-bg-color: #6287f8;
+  --second-color: #383e65;
+  --home-accent: white;
+  --work-bg: white;
+  --text-color: white;
+  --article-code-bg: #cbc5d4;
+  --hover-style: rgba(115, 255, 255, 0.2);
+  --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
