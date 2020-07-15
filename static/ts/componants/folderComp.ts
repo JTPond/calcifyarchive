@@ -13,7 +13,7 @@ export class FolderComp {
     let icon: HTMLImageElement = document.createElement('img');
     icon.src = "./style/assets/article.svg";
     let cap = document.createElement('figcaption');
-    cap.textContent = title;
+    cap.textContent = title.replace(/(?<!\\)_/g,' ').replace(/\_/g,'_');
     fig.append(icon,cap);
     fig.addEventListener('click', async () => {
       let sfc = new ArticleComp(art);
@@ -31,7 +31,7 @@ export class FolderComp {
     let icon: HTMLImageElement = document.createElement('img');
     icon.src = "./style/assets/folder.svg";
     let cap = document.createElement('figcaption');
-    cap.textContent = title;
+    cap.textContent = title.replace(/(?<!\\)_/g,' ').replace(/\_/g,'_');
     fig.append(icon,cap);
     fig.addEventListener('click', () => {
       let sfc = new FolderComp(fold);

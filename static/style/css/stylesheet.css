@@ -22,6 +22,10 @@ pre {
   margin-right: 5vw;
 }
 
+#work__page.open p {
+  max-width: 75vw;
+}
+
 .folder {
   width: 85vw;
 }
@@ -192,7 +196,7 @@ pre {
 }
 
 .homepage__link:hover {
-  background-color: var(--hover-style);
+  background-color: var(--home-hover-style);
 }
 
 .homepage__head {

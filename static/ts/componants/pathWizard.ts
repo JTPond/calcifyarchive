@@ -175,7 +175,7 @@ export class PathWizard {
 					let [root, pinned, recent] = Folder.fromJSON(json);
 					this.root = root;
 					this.pinned = pinned;
-					this.recent = recent.sort((a,b) => b[1].mtime.getTime() - a[1].mtime.getTime()).slice(0,9);
+					this.recent = recent.sort((a,b) => b[1].mtime.getTime() - a[1].mtime.getTime()).slice(0,8);
 				});
 	}
 

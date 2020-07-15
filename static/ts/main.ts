@@ -99,9 +99,9 @@ window.addEventListener('DOMContentLoaded',() => {
         tbar.classList.remove('open');
         wpage.innerHTML = '';
         window.location.hash = '';
+        controls.firstElementChild.replaceWith((new TBarControls('/')).getUrlControl());
       } else {
         __main__.current = '/';
-        controls.firstElementChild.replaceWith((new TBarControls('/')).getUrlControl());
         let fc = new FolderComp(__main__.index.root);
         wpage.append(fc.getHTML());
         wpage.classList.add('open');

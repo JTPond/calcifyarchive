@@ -5,6 +5,7 @@
   --work-bg: white;
   --text-color: white;
   --article-code-bg: #cbc5d4;
-  --hover-style: rgba(115, 255, 255, 0.2);
+  --hover-style: rgba(255, 255, 255, 0.2);
+  --home-hover-style: rgba(115, 255, 255, 0.2);
   --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
