@@ -21,5 +21,5 @@ Tool for creating a single page static site for hosting articles and blog posts,
   * For HTML there's no need to add a head, or the body tags.
     * You have two options:
       * `parent_dir/article_name.html`, or `parent_dir/article_name/article.html` with a companion `parent_dir/article_name/assets/` which can contain anything your article references.
-        * If you use the second option, always use `href/src="./assets/blah.blah"`, the indexer will replace all of these patterns with `href/src="./archive/path/to/assets/blah.blah"`.
+        * If you use the second option, always use `src="./assets/blah.blah"`, the indexer will replace all of these patterns with `src="./archive/path/to/assets/blah.blah"`.
   * For markdown you can only use the second option and `parent_dir/article_name/article.html` will be created from `parent_dir/article_name/article.md` using commonmark. The assets directory is the same.
