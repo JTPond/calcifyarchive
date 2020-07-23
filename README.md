@@ -4,7 +4,7 @@ Tool for creating a single page static site for hosting articles and blog posts,
 
 # Example
 
-[jtpond.github.io](jtpond.github.io) 
+[jtpond.github.io](https://jtpond.github.io) 
 
 ## Requirements
 
