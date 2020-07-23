@@ -1,6 +1,10 @@
-# calcifyarchive
+# CalcifyArchive
 
 Tool for creating a single page static site for hosting articles and blog posts, built on Typescript and Python, mimicking a desktop file browser.
+
+# Example
+
+[jtpond.github.io](jtpond.github.io) 
 
 ## Requirements
 

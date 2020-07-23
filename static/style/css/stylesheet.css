@@ -28,6 +28,7 @@ pre {
 
 .folder {
   width: 85vw;
+  max-width: 1450px;
 }
 
 .icon {
@@ -143,7 +144,9 @@ pre {
   margin: 8vh auto auto auto;
   padding-top: 50px;
   padding-left: 5vw;
+  padding-right: 3vw;
   width: 90vw;
+  max-width: 1500px;
   height: 85vh;
   overflow-y: auto;
   box-shadow: var(--box-shadow);
@@ -154,23 +157,41 @@ pre {
   position: fixed;
   height: 60vh;
   width: 55vw;
+  min-width: 1700px;
   margin: 20vh 22.5vw 0px 22.5vw;
 }
 
 #pinned {
   background-color: var(--second-color);
   height: 60vh;
-  width: 25vw;
-  margin: 0px 5vw 0px 0px;
+  width: 45%;
+  margin: 0px 10% 0px 0px;
   display: inline-block;
 }
 
 #recent {
   background-color: var(--second-color);
   height: 60vh;
-  width: 25vw;
+  width: 45%;
   margin: 0px;
   display: inline-block;
+}
+
+@media screen and (max-width: 1900px){
+  #home__content {
+    min-width: 1700px;
+    margin: 20vh 25px 0px 25px;
+  }
+
+  #pinned {
+    width: 47.5%;
+    margin: 0px 5% 0px 0px;
+  }
+
+  #recent {
+    width: 47.5%;
+  }
+
 }
 
 .homepage__list {
