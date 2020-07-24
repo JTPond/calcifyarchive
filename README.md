@@ -4,7 +4,7 @@ Tool for creating a single page static site for hosting articles and blog posts,
 
 # Example
 
-[jtpond.github.io](https://jtpond.github.io) 
+[jtpond.github.io](https://jtpond.github.io)
 
 ## Requirements
 
@@ -17,7 +17,10 @@ Tool for creating a single page static site for hosting articles and blog posts,
   1. Clone the repository
   2. In the static subdirectory, run either `build.sh` or `build.bat` depending on your system.
   3. In the root directory, run `python(3) indexer.py <path/to/dir/to/be/archived>`. Get help: `python(3) indexer.py -h`.
-  4. Point a webserver at the `./dist/` directory.
+  4. Deploy:
+    1. Point a webserver at the `./dist/` directory.
+    2. Commit `./dist/` to GitHub pages
+    3. Sync `./dist/` to another static CDS like S3+CloudFront
 
 ## Archive format
 
