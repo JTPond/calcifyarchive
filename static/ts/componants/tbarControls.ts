@@ -18,6 +18,7 @@ export class TBarControls {
   }
 
   getUrlControl(): HTMLElement {
+    let mql = window.matchMedia('(min-width: 1100px)');
     let out = document.createElement('div');
     out.id = "folder__control";
     let root_link = document.createElement('span');
@@ -31,7 +32,7 @@ export class TBarControls {
         th_link = th_link.concat(`${chunk}/`);
         let fold_link = document.createElement('span');
         fold_link.classList.add('folder__link');
-        fold_link.textContent = `${chunk}/`;
+        fold_link.textContent = (mql.matches)? `${chunk}/`:'./';
         fold_link.addEventListener('click', this.open_folder(th_link));
         return fold_link;
       }

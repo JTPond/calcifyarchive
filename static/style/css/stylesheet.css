@@ -200,6 +200,14 @@ pre {
     display: block;
   }
 
+  #title__bar .title {
+    font-size: 3vh;
+  }
+
+  #folder__control {
+    font-size: 3vh;
+  }
+
 }
 
 

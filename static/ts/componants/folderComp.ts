@@ -46,12 +46,15 @@ export class FolderComp {
   getHTML(): HTMLElement {
     let out = document.createElement('div');
     out.classList.add("folder");
-    this.folder.folders.forEach((fold,key) => {
-      let icon = this.getFolderIcon(key,fold);
+    console.log(this.folder);
+    this.folder.f_order.forEach(key => {
+      console.log(key);
+      let icon = this.getFolderIcon(key,this.folder.folders.get(key));
       out.append(icon);
     });
-    this.folder.articles.forEach((art,key) => {
-      out.append(this.getArticleIcon(key,art));
+    this.folder.a_order.forEach(key => {
+      console.log(key);
+      out.append(this.getArticleIcon(key,this.folder.articles.get(key)));
     });
     return out;
   }

@@ -18,10 +18,14 @@ export class Article {
 }
 
 export class Folder {
+	f_order: string[];
+	a_order: string[];
 	folders: Map<string,Folder>;
 	articles: Map<string,Article>;
 
-	constructor (folders: Map<string,Folder> = new Map<string,Folder>(), articles: Map<string,Article> = new Map<string,Article>()) {
+	constructor (f_order: string[] = [], a_order: string[] = [], folders: Map<string,Folder> = new Map<string,Folder>(), articles: Map<string,Article> = new Map<string,Article>()) {
+		this.f_order = f_order;
+		this.a_order = a_order;
 		this.folders = folders;
 		this.articles = articles;
 	}
@@ -29,6 +33,8 @@ export class Folder {
 	static fromJSON(obj: Object): any {
 		let folders: Map<string,Folder> = new Map();
 		let articles: Map<string,Article> = new Map();
+		let f_order: string[] = obj['self']['f_order'];
+		let a_order: string[] = obj['self']['a_order'];
 		let pinned: any[] = [];
 		let recent: any[] = [];
 		for (let key of Object.keys(obj)) {
@@ -41,19 +47,21 @@ export class Folder {
 						pinned.push([`/${key}`,temp_art])
 					}
 				} else {
-					let [nf, npin, nrec] = Folder.fromJSON(value);
-					folders.set(key,nf);
-					npin.forEach(([nkey, nvalue]) => {
-						nkey = `/${key}${nkey}`;
-						pinned.push([nkey,nvalue]);
-					});
-					nrec.forEach(([nkey, nvalue]) => {
-						nkey = `/${key}${nkey}`;
-						recent.push([nkey,nvalue]);
-					});
+					if (key !== 'self') {
+						let [nf, npin, nrec] = Folder.fromJSON(value);
+						folders.set(key,nf);
+						npin.forEach(([nkey, nvalue]) => {
+							nkey = `/${key}${nkey}`;
+							pinned.push([nkey,nvalue]);
+						});
+						nrec.forEach(([nkey, nvalue]) => {
+							nkey = `/${key}${nkey}`;
+							recent.push([nkey,nvalue]);
+						});
+					}
 				}
 		}
-		return [new Folder(folders,articles), pinned, recent];
+		return [new Folder(f_order,a_order,folders,articles), pinned, recent];
 	}
 
 	get(path: string): Article | undefined {
