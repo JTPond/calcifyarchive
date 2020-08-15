@@ -38,7 +38,7 @@ Tool for creating a single page static site for hosting articles and blog posts,
 
 Re-running the indexer will update any articles' html form and their modified time and update `dist/`.
 
-If you've moved dist somewhere other than the cwd, you'll need to specify the location of the current index by running: `python(3) indexer.py <path/to/dir/to/be/archived> <path/to/dist/index.json>`
+If you've modified any `article.html` files that were produced by the indexer such that their modified time is greater than their markdown version, the indexer will not overwrite them. If you modify the markdown file, though, the html will get overwritten.
 
 ## Other Content
 
@@ -48,4 +48,4 @@ For content other than basic md/html content you can create an `article_name/art
     Not Supported
   </object>
 ```
-and the indexer will update the data field and the object will load naturally in the client. This works well with Jupyter Notebooks exported as html. 
+and the indexer will update the data field and the object will load naturally in the client. This works well with Jupyter Notebooks exported as html.

@@ -49,7 +49,7 @@ window.addEventListener('DOMContentLoaded',() => {
   let rec_list = document.createElement('ul');
   rec_list.classList.add('homepage__list');
   let rec_head = document.createElement('h3');
-  rec_head.textContent = "Recent Articles";
+  rec_head.textContent = "Recently Updated";
   rec_head.classList.add('homepage__head');
   __main__.index.load('./index.json').then(() => {
     __main__.index.pinned.forEach(([path, art]) => {

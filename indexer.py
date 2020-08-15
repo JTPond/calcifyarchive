@@ -53,10 +53,13 @@ def make_index(archive_dir,index = {}):
                             stops.append(p_path)
                         elif len(art_check) == 2:
                             o_html = p_path/"article.html"
+                            o_time = datetime.fromtimestamp(o_html.stat().st_mtime).strftime("%Y-%m-%dT%X")
+                            m_time = datetime.fromtimestamp((p_path/"article.md").stat().st_mtime).strftime("%Y-%m-%dT%X")
                             a_dir = p_path/"assets"
-                            with o_html.open('w+',encoding='utf-8') as hf:
-                                hf.write(commonmark((p_path/"article.md").read_text(encoding='utf-8')).replace("=\"./assets","=\"./"+str("archive"/a_dir.relative_to(archive_dir))))
-                            index_buff[p_path.stem]["mtime"] = datetime.fromtimestamp((p_path/"article.md").stat().st_mtime).strftime("%Y-%m-%dT%X")
+                            if m_time > o_time:
+                                with o_html.open('w+',encoding='utf-8') as hf:
+                                    hf.write(commonmark((p_path/"article.md").read_text(encoding='utf-8')).replace("=\"./assets","=\"./"+str("archive"/a_dir.relative_to(archive_dir))))
+                                index_buff[p_path.stem]["mtime"] = datetime.fromtimestamp((p_path/"article.md").stat().st_mtime).strftime("%Y-%m-%dT%X")
                             stops.append(p_path)
                     elif p_path.is_file():
                         index_buff[p_path.stem]["mtime"] = datetime.fromtimestamp(p_path.stat().st_mtime).strftime("%Y-%m-%dT%X")
