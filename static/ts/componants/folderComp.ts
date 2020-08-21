@@ -15,12 +15,8 @@ export class FolderComp {
     let cap = document.createElement('figcaption');
     cap.textContent = title.replace(/(?<!\\)_/g,' ').replace(/\_/g,'_');
     fig.append(icon,cap);
-    fig.addEventListener('click', async () => {
-      let sfc = new ArticleComp(art);
-      let pg = document.getElementById('work__page');
-      pg.innerHTML = '';
-      pg.append(await sfc.getHTML());
-      window.dispatchEvent(new CustomEvent('article_opened',{detail:title}));
+    fig.addEventListener('click', () => {
+      window.location.hash = window.location.hash + title;
     });
     return fig;
   }
@@ -34,11 +30,7 @@ export class FolderComp {
     cap.textContent = title.replace(/(?<!\\)_/g,' ').replace(/\_/g,'_');
     fig.append(icon,cap);
     fig.addEventListener('click', () => {
-      let sfc = new FolderComp(fold);
-      let pg = document.getElementById('work__page');
-      pg.innerHTML = '';
-      pg.append(sfc.getHTML());
-      window.dispatchEvent(new CustomEvent('folder_opened',{detail:title}));
+      window.location.hash = window.location.hash + title + '/';
     });
     return fig;
   }
@@ -46,14 +38,11 @@ export class FolderComp {
   getHTML(): HTMLElement {
     let out = document.createElement('div');
     out.classList.add("folder");
-    console.log(this.folder);
     this.folder.f_order.forEach(key => {
-      console.log(key);
       let icon = this.getFolderIcon(key,this.folder.folders.get(key));
       out.append(icon);
     });
     this.folder.a_order.forEach(key => {
-      console.log(key);
       out.append(this.getArticleIcon(key,this.folder.articles.get(key)));
     });
     return out;
