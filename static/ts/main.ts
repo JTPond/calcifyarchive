@@ -83,7 +83,7 @@ window.addEventListener('DOMContentLoaded',() => {
     let title = document.createElement('div');
     title.classList.add('title');
     title.textContent = "Calcify/Archive";
-
+    document.title = "Calcify/Archive";
     let controls = document.createElement('div');
     controls.classList.add('controls');
     let f_links = (new TBarControls('/')).getUrlControl();
