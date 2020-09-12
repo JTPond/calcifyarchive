@@ -126,6 +126,10 @@ window.addEventListener('DOMContentLoaded',() => {
         tbar.classList.add('open');
       }
     });
+    window.addEventListener('resize',() => {
+      let nHash = window.location.hash.slice(1);
+      controls.firstElementChild.replaceWith((new TBarControls(nHash)).getUrlControl());
+    });
     __main__.fillRoot(page);
   });
 });
