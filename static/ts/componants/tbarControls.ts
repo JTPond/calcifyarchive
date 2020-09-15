@@ -1,13 +1,11 @@
 export class TBarControls {
   current: string;
-  cells: string[];
   articleName: string | null;
 
   constructor(current: string) {
     this.current = current;
-    this.cells = current.split('/');
     if (!this.current.endsWith('/')){
-      this.articleName = this.cells.pop();
+      this.articleName = current.split('/').pop();
     } else this.articleName = null;
   }
 
@@ -20,7 +18,14 @@ export class TBarControls {
   getUrlControl(): HTMLElement {
     let vw = window.innerWidth;
     let vh = 2.75*window.innerHeight/100.0;
-    let matches = vw > (this.current.length * vh);
+    let counter = 1;
+    let curr = this.current;
+    while (vw < (curr.length * vh)) {
+      let cells = curr.split('/');
+      cells[counter] = '.';
+      curr = cells.join('/');
+      counter += 1;
+    }
     let out = document.createElement('div');
     out.id = "folder__control";
     let root_link = document.createElement('span');
@@ -29,12 +34,13 @@ export class TBarControls {
     root_link.addEventListener('click', this.open_folder('/'));
     out.append(root_link);
     let th_link = '/';
-    let fold_links = this.cells.slice(1).map((chunk) => {
+    let cells = curr.split('/');
+    let fold_links = cells.slice(1,cells.length-1).map((chunk) => {
       if (chunk !== '') {
         th_link = th_link.concat(`${chunk}/`);
         let fold_link = document.createElement('span');
         fold_link.classList.add('folder__link');
-        fold_link.textContent = (matches)? `${chunk}/`:'./';
+        fold_link.textContent = `${chunk}/`;
         fold_link.addEventListener('click', this.open_folder(th_link));
         return fold_link;
       }
