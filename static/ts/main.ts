@@ -45,11 +45,11 @@ window.addEventListener('DOMContentLoaded',() => {
   rec_head.textContent = "Recently Updated";
   rec_head.classList.add('homepage__head');
   __main__.index.load('./index.json').then(() => {
-    __main__.index.pinned.forEach(([path, art]) => {
+    __main__.index.pinned.forEach(([path, _]) => {
       let pin = new HPLink(path);
       pin_list.append(pin.getHTML());
     });
-    __main__.index.recent.forEach(([path, art]) => {
+    __main__.index.recent.forEach(([path, _]) => {
       let rec = new HPLink(path);
       rec_list.append(rec.getHTML());
     });
