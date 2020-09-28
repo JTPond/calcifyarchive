@@ -1,8 +1,8 @@
-import { Article, Folder, PathWizard } from "./componants/pathWizard.js";
-import { FolderComp } from "./componants/folderComp.js";
-import { ArticleComp } from "./componants/articleComp.js";
-import { TBarControls } from "./componants/tbarControls.js";
-import { HPLink } from "./componants/hplink.js";
+import { Article, Folder, PathWizard } from "./components/pathWizard.js";
+import { FolderComp } from "./components/folderComp.js";
+import { ArticleComp } from "./components/articleComp.js";
+import { TBarControls } from "./components/tbarControls.js";
+import { HPLink } from "./components/hplink.js";
 
 class main {
   index: PathWizard;
