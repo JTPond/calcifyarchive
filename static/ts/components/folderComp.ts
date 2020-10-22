@@ -1,5 +1,4 @@
-import { ArticleComp } from "./articleComp.js";
-import { Article, Folder } from "./pathWizard.js";
+import { Folder } from "./pathWizard.js";
 
 export class FolderComp {
   folder: Folder;
@@ -7,7 +6,7 @@ export class FolderComp {
     this.folder = folder;
   }
 
-  getArticleIcon(title: string, art: Article): HTMLElement {
+  getArticleIcon(title: string): HTMLElement {
     let fig = document.createElement('figure');
     fig.classList.add("icon");
     let icon: HTMLImageElement = document.createElement('img');
@@ -21,7 +20,7 @@ export class FolderComp {
     return fig;
   }
 
-  getFolderIcon(title: string, fold: Folder): HTMLElement {
+  getFolderIcon(title: string): HTMLElement {
     let fig = document.createElement('figure');
     fig.classList.add("icon");
     let icon: HTMLImageElement = document.createElement('img');
@@ -39,11 +38,11 @@ export class FolderComp {
     let out = document.createElement('div');
     out.classList.add("folder");
     this.folder.f_order.forEach(key => {
-      let icon = this.getFolderIcon(key,this.folder.folders.get(key));
+      let icon = this.getFolderIcon(key);
       out.append(icon);
     });
     this.folder.a_order.forEach(key => {
-      out.append(this.getArticleIcon(key,this.folder.articles.get(key)));
+      out.append(this.getArticleIcon(key));
     });
     return out;
   }
